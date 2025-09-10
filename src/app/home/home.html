@@ -1,0 +1,41 @@
+<!-- Hero Section -->
+<section
+    class="flex flex-col-reverse md:flex-row md:gap-0 px-10 py-15 md:py-40 max-w-6xl mx-auto h-[calc(100vh-104px)]">
+    <div class="flex-1">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-snug">
+            Hi, I am Felipin, <br> Full-Stack Developer
+        </h2>
+        <p class="text-gray-600 mt-6 max-w-2xl">
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+            Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+        </p>
+        <button class="mt-6 px-6 py-3 bg-red-500 text-white font-semibold rounded-xl border border-black hover:bg-red-600 shadow-[12px_12px_0px_rgba(0,0,0,0.8)]">
+            Download Resume
+        </button>
+    </div>
+    <div class="flex-1 flex justify-center">
+        <img src="https://placehold.co/600x400.png" alt="Profile" class="rounded-full w-75 h-75 object-cover shadow-md">
+    </div>
+</section>    
+
+
+<section class="mx-auto px-6 min-h-[calc(100vh)] pb-25">
+    <h1 class="mb-20 text-center text-6xl font-bold">Projects</h1>
+    <mat-tab-group>
+        <mat-tab label="Web">
+            <app-project-card></app-project-card>    
+            <app-project-card></app-project-card>    
+            <app-project-card></app-project-card>    
+        </mat-tab>
+        <mat-tab label="App">
+            <app-project-card></app-project-card>    
+            <app-project-card></app-project-card>    
+            <app-project-card></app-project-card>    
+        </mat-tab>
+        <mat-tab label="Others">
+            <app-project-card></app-project-card>    
+            <app-project-card></app-project-card>    
+            <app-project-card></app-project-card>    
+        </mat-tab>
+    </mat-tab-group>
+</section>

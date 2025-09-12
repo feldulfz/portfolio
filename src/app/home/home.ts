@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { MatTabsModule } from '@angular/material/tabs';
-import { ProjectCard } from "./components/project-card/project-card";
+import { ProjectsContainer } from "./containers/projects.container/projects.container";
+import { AboutContainer } from "./containers/about.container/about.container";
 
 @Component({
   selector: 'app-home',
-  imports: [MatTabsModule, ProjectCard],
+  imports: [ProjectsContainer, AboutContainer],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

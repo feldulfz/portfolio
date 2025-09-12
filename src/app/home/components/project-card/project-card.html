@@ -2,23 +2,26 @@
 
     <!-- Image Section -->
     <div class="flex-1 flex justify-center items-center p-6">
-        <img src="https://placehold.co/400x300.png" alt="T-shirt"
+        <img [src]="imageUrl()" [alt]="title()"
             class="w-full h-auto max-w-sm min-w-[200px] max-h-[450px] object-contain" />
     </div>
 
     <!-- Right Section -->
     <div class="flex-1 p-8 flex flex-col justify-center">
-        <p class="text-purple-600 font-medium">Finished Project</p>
-        <h2 class="text-2xl md:text-3xl font-extrabold mt-2">
-            AI-Generated 3D Website (QUANTUM T-SHIRTS)
+        <p class="text-purple-600 font-medium"> 
+            {{ status() ? 'Finished Project' : 'Ongoing Project'}} 
+        </p>
+        <h2 class="text-2xl md:text-3xl font-extrabold mt-2">  
+            {{ title() }}
         </h2>
         <p class="mt-2 text-gray-600">
-            AI Powered 3D Website | Built with React, Next JS 13, Tailwind CSS
+            {{ description() }}
         </p>
 
         <!-- Visit Project Button -->
         <div class="mt-6 flex items-center gap-4">
-            <a class="w-10 h-10 bg-black rounded-full text-white" target="_blank" href="#">
+            <a class="w-10 h-10 bg-black rounded-full text-white" target="_blank" 
+                [href]="githubLink()">
                 <svg
                     xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512"
                     class="w-full h-auto undefined">
@@ -29,7 +32,7 @@
                 </svg>
             </a>
 
-            <a href="#" class="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-900 transition">
+            <a [href]="projectLink()" target="_blank" class="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-900 transition">
                 Visit Project
             </a>
         </div>

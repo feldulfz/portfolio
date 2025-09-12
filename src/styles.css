@@ -1,3 +1,13 @@
+@import url("https://api.fontshare.com/v2/css?f[]=clash-display@1&display=swap");
 @import "tailwindcss";
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    /* font-family: Roboto, "Helvetica Neue", sans-serif; */
+    font-family: "Clash Display", Roboto, "Helvetica Neue", sans-serif;    
+}

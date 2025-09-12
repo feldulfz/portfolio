@@ -1,0 +1,53 @@
+<section class="mx-auto px-6 min-h-[calc(100vh)] pb-25">
+    <h1 class="mb-20 text-center text-6xl font-bold">Projects</h1>
+    <mat-tab-group>
+        <mat-tab label="Web">
+            @if (webProjects().length > 0) {
+                @for (project of webProjects(); track project) {
+                <app-project-card 
+                    [title]="project.title" 
+                    [description]="project.description" 
+                    [status]="project.status"
+                    [imageUrl]="project.imageUrl" 
+                    [githubLink]="project.githubLink" 
+                    [projectLink]="project.projectLink">
+                </app-project-card>
+                }
+            } @else {
+                <p class="text-center text-gray-500 text-2xl mt-[30vh]">No projects available.</p>
+            }
+        </mat-tab>
+        <mat-tab label="App">
+            @if (appProjects().length > 0) {
+                @for (project of appProjects(); track project) {
+                <app-project-card 
+                    [title]="project.title" 
+                    [description]="project.description" 
+                    [status]="project.status"
+                    [imageUrl]="project.imageUrl" 
+                    [githubLink]="project.githubLink" 
+                    [projectLink]="project.projectLink">
+                </app-project-card>
+                }
+            } @else {
+                <p class="text-center text-gray-500 text-2xl mt-[30vh]">No projects available.</p>
+            }
+        </mat-tab>
+        <mat-tab label="Others">
+            @if (otherProjects().length > 0) {
+                @for (project of otherProjects(); track project) {
+                <app-project-card 
+                    [title]="project.title" 
+                    [description]="project.description" 
+                    [status]="project.status"
+                    [imageUrl]="project.imageUrl" 
+                    [githubLink]="project.githubLink" 
+                    [projectLink]="project.projectLink">
+                </app-project-card>
+                }
+            } @else {
+                <p class="text-center text-gray-500 text-2xl mt-[30vh]">No projects available.</p>
+            }
+        </mat-tab>
+    </mat-tab-group>
+</section>

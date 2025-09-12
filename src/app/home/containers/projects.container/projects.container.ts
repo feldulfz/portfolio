@@ -1,7 +1,8 @@
 import { Component, computed, inject } from '@angular/core';
 import { ProjectCard } from "../../components/project-card/project-card";
 import { MatTabsModule } from '@angular/material/tabs';
-import { Contentful } from '../../../services/contentful';
+import { ContentfulService } from '../../../services/contentful-service/contentful.service.port';
+import { ContentfulServiceAdapter } from '../../../services/contentful-service/contentful.service.adapter';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Project } from '../../../models/project.model';
 
@@ -9,11 +10,17 @@ import { Project } from '../../../models/project.model';
   selector: 'app-projects-container',
   imports: [ MatTabsModule, ProjectCard],
   templateUrl: './projects.container.html',
-  styleUrl: './projects.container.css'
+  styleUrl: './projects.container.css',
+  providers: [
+    {
+      provide: ContentfulService,
+      useClass: ContentfulServiceAdapter
+    }
+  ]   
 })
 export class ProjectsContainer {
 
-  private contentfulService = inject(Contentful);
+  private contentfulService = inject(ContentfulService);
 
   projectsSignal = toSignal(this.contentfulService.getProjects(), { initialValue: [] });
   

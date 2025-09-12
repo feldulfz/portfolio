@@ -12,4 +12,12 @@ export class Footer {
   email = input<string>('');
   firstName = input<string>('');
   lastName = input<string>('');
+  urlOne = input<string>('');
+  urlTwo = input<string>('');
+  urlThree = input<string>('');
+  urlFour = input<string>('');
+  iconOne = input<string>('');
+  iconTwo = input<string>('');
+  iconThree = input<string>('');
+  iconFour = input<string>('');  
 }

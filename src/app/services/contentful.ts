@@ -9,7 +9,7 @@ import { About, defaultAbout } from '../models/about.model';
   providedIn: 'root'
 })
 export class Contentful {
-  
+
   private client = createClient({
     space: environment.spaceId,
     accessToken: environment.accessToken
@@ -19,10 +19,11 @@ export class Contentful {
     return from(this.client.getEntries({ content_type: 'portfolioAbout', limit: 1 })).pipe(
       map((response: any) => {
         if (!response.items.length) {
-          return defaultAbout; 
+          return defaultAbout;
         }
 
-        const { firstName, lastName, profession, aboutMe, resumeLink, profileUrl, email } = response.items[0].fields;
+        const { firstName, lastName, profession, aboutMe, resumeLink, profileUrl, email, socialMediaLinks } = response.items[0].fields;
+        
         return {
           firstName,
           lastName,
@@ -30,11 +31,17 @@ export class Contentful {
           aboutMe,
           resumeLink,
           profileUrl: `https:${profileUrl.fields.file.url}`,
-          email
+          email,
+          socials: socialMediaLinks
+            ? socialMediaLinks.map((link: any) => ({
+              icon: link.fields.icon,
+              url: link.fields.url
+            }))
+            : []
         } as About;
       })
     );
-  }  
+  }
 
   getProjects() {
     return from(this.client.getEntries({ content_type: 'portfolio' })).pipe(
@@ -53,5 +60,5 @@ export class Contentful {
         })
       )
     );
-  }  
+  }
 }

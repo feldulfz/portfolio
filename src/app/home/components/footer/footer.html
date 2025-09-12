@@ -15,17 +15,17 @@
                 <li><a href="#">Contact</a></li>
             </ul>
             <div class="flex gap-4">
-                <a href="https://dribbble.com/yourusername" target="_blank">
-                    <i class="fab fa-dribbble"></i>
+                <a [href]="urlOne()" target="_blank">
+                    <i [class]="'fab fa-' + iconOne()"></i>
                 </a>
-                <a href="https://twitter.com/yourusername" target="_blank">
-                    <i class="fab fa-twitter"></i>
+                <a [href]="urlTwo()" target="_blank">
+                    <i [class]="'fab fa-' + iconTwo()"></i>
                 </a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank">
-                    <i class="fab fa-linkedin"></i>
+                <a [href]="urlThree()" target="_blank">
+                    <i [class]="'fab fa-' + iconThree()"></i>
                 </a>
-                <a href="https://instagram.com/yourusername" target="_blank">
-                    <i class="fab fa-instagram"></i>
+                <a [href]="urlFour()" target="_blank">
+                    <i [class]="'fab fa-' + iconFour()"></i>
                 </a>
             </div>
         </div>

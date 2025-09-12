@@ -3,10 +3,11 @@ import { Footer } from "../../components/footer/footer";
 import { Contentful } from '../../../services/contentful';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { defaultAbout } from '../../../models/about.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-footer-container',
-  imports: [Footer],
+  imports: [Footer, CommonModule],
   templateUrl: './footer.container.html',
   styleUrl: './footer.container.css'
 })

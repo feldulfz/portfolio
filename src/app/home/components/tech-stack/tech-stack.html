@@ -1,1 +1,50 @@
-<img [src]="logoUrl()" [title]="logoTitle()" [alt]="logoAltAttribute()" class="w-16 md:w-20 lg:w-24 h-auto"/>
+<section class="mx-auto max-w-6xl min-h-[100vh] px-10">
+    <div>
+        <h1
+            class="text-center text-4xl md:text-5xl font-bold">
+            Tech Stack
+        </h1>
+        <p class="text-center pt-1">
+            Technologies I've been working with recently
+        </p>
+    </div>
+    <div>
+        @if (logoTechs().length > 0) {
+                <div class="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 items-center gap-10 pt-20">        
+                    @for (logoTech of logoTechs(); track logoTech) {
+                    <app-tech-stack-item
+                        [logoUrl]="logoTech.url"
+                        [logoTitle]="logoTech.title"
+                        [logoAltAttribute]="logoTech.alt"
+                    >
+                    </app-tech-stack-item>
+
+                    }     
+                </div>
+        } @else {
+            <p class="text-center text-gray-500 text-2xl my-[10vh]">No Tech-Stack available.</p>
+        }            
+    </div>
+    <div>
+        <h1
+            class="text-center text-4xl md:text-5xl font-bold pt-20">
+            Tools
+        </h1>
+    </div>
+    <div>
+        @if (logoTools().length > 0) {    
+            <div class="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 items-center gap-10 pt-15">
+                @for (logoTool of logoTools(); track logoTool) {
+                <app-tech-stack-item
+                    [logoUrl]="logoTool.url"
+                    [logoTitle]="logoTool.title"
+                    [logoAltAttribute]="logoTool.alt"
+                >
+                </app-tech-stack-item>
+                }
+            </div>
+        } @else {
+            <p class="text-center text-gray-500 text-2xl my-[10vh]">No Tools available.</p>
+        }         
+    </div>   
+</section>

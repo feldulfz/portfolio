@@ -1,14 +1,13 @@
 import { Component, computed, inject } from '@angular/core';
-import { ProjectCard } from "../../components/project-card/project-card";
-import { MatTabsModule } from '@angular/material/tabs';
 import { ContentfulService } from '../../../services/contentful-service/contentful.service.port';
 import { ContentfulServiceAdapter } from '../../../services/contentful-service/contentful.service.adapter';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Project } from '../../../models/project.model';
+import { Projects } from "../../components/projects/projects";
 
 @Component({
   selector: 'app-projects-container',
-  imports: [ MatTabsModule, ProjectCard],
+  imports: [Projects],
   templateUrl: './projects.container.html',
   styleUrl: './projects.container.css',
   providers: [
@@ -24,9 +23,9 @@ export class ProjectsContainer {
 
   projectsSignal = toSignal(this.contentfulService.getProjects(), { initialValue: [] });
   
-  webProjects = computed(() => this.projectsSignal().filter((p: Project) => p.category === 'web'));
-  appProjects = computed(() => this.projectsSignal().filter((p: Project) => p.category === 'app'));
-  otherProjects = computed(() => this.projectsSignal().filter((p: Project) => p.category === 'others'));  
+  webProjectsSignal = computed(() => this.projectsSignal().filter((p: Project) => p.category === 'web'));
+  appProjectsSignal = computed(() => this.projectsSignal().filter((p: Project) => p.category === 'app'));
+  otherProjectsSignal = computed(() => this.projectsSignal().filter((p: Project) => p.category === 'others'));  
 
 }
 

@@ -24,13 +24,13 @@ export class TechsContainer {
 
   logosSignal = toSignal(this.contentfulService.getLogos(), { initialValue: [] });  
 
-  logoTechs = computed(() => 
+  logoTechsSignal = computed(() => 
     this.logosSignal()
       .filter((l: Logo) => l.category === 'tech')
       .sort((a, b) => a.sortOrder - b.sortOrder)
   );
 
-  logoTools = computed(() => 
+  logoToolsSignal = computed(() => 
     this.logosSignal()
       .filter((l: Logo) => l.category === 'tool')
       .sort((a, b) => a.sortOrder - b.sortOrder)

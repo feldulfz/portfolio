@@ -3,6 +3,7 @@ import { createClient } from 'contentful';
 import { environment } from '../../../enviroment/enviroment';
 import { from, map } from 'rxjs';
 import { Project } from '../../models/project.model';
+import { Logo } from '../../models/logo.model';
 import { About, defaultAbout } from '../../models/about.model';
 import { ContentfulService } from '../../services/contentful-service/contentful.service.port';
 
@@ -43,6 +44,23 @@ export class ContentfulServiceAdapter implements ContentfulService {
       })
     );
   }
+
+  public getLogos() {
+    return from(this.client.getEntries({ content_type: 'portfolioTechnologies' })).pipe(
+      map((response: any) =>
+        response.items.map((item: any) => {
+          const { sortOrder, title, url, alt, category } = item.fields;
+          return {
+            sortOrder,
+            title,
+            url: `https:${url.fields.file.url}`,
+            alt,
+            category
+          } as Logo;
+        })
+      )
+    );
+  }  
 
   public getProjects() {
     return from(this.client.getEntries({ content_type: 'portfolio' })).pipe(

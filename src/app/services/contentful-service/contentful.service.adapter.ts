@@ -66,7 +66,7 @@ export class ContentfulServiceAdapter implements ContentfulService {
     return from(this.client.getEntries({ content_type: 'portfolio' })).pipe(
       map((response: any) =>
         response.items.map((item: any) => {
-          const { title, description, status, imageUrl, githubLink, projectLink, category } = item.fields;
+          const { title, description, status, imageUrl, githubLink, projectLink, category, sortOrder } = item.fields;
           return {
             title,
             description,
@@ -74,7 +74,8 @@ export class ContentfulServiceAdapter implements ContentfulService {
             imageUrl: `https:${imageUrl.fields.file.url}`,
             githubLink,
             projectLink,
-            category
+            category,
+            sortOrder            
           } as Project;
         })
       )

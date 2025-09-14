@@ -6,4 +6,5 @@ export interface Project {
   githubLink: string;
   projectLink: string;
   category: string;
+  sortOrder: number;  
 }

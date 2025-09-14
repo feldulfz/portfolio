@@ -23,9 +23,23 @@ export class ProjectsContainer {
 
   projectsSignal = toSignal(this.contentfulService.getProjects(), { initialValue: [] });
   
-  webProjectsSignal = computed(() => this.projectsSignal().filter((p: Project) => p.category === 'web'));
-  appProjectsSignal = computed(() => this.projectsSignal().filter((p: Project) => p.category === 'app'));
-  otherProjectsSignal = computed(() => this.projectsSignal().filter((p: Project) => p.category === 'others'));  
+  webProjectsSignal = computed(() => 
+    this.projectsSignal()
+      .filter((p: Project) => p.category === 'web')
+      .sort((a, b) => a.sortOrder - b.sortOrder)
+    );
+
+  appProjectsSignal = computed(() => 
+    this.projectsSignal()
+      .filter((p: Project) => p.category === 'app')
+      .sort((a, b) => a.sortOrder - b.sortOrder)
+  );
+
+  otherProjectsSignal = computed(() => 
+    this.projectsSignal()
+      .filter((p: Project) => p.category === 'others')
+      .sort((a, b) => a.sortOrder - b.sortOrder)
+    );  
 
 }
 

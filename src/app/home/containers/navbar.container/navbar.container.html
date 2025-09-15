@@ -1,5 +1,6 @@
 <app-navbar
     [firstName]="about().firstName"
     [lastName]="about().lastName"
+    (darkModeChange)="onDarkModeChanged($event)"
 >
 <app-navbar/>

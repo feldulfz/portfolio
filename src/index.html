@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>PortfolioWeb</title>
@@ -7,9 +8,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=keyboard_double_arrow_up" />  
 </head>
-<body>
+
+<body class="finisher-header">
+  <button onclick="topFunction()" id="myBtn" title="Go to top"
+     class="hidden fixed bottom-5 right-7 z-[99] text-[18px] border-none outline-none bg-button text-white cursor-pointer p-[15px] rounded hover:bg-buttonHover">
+    <span class="material-symbols-outlined">
+      keyboard_double_arrow_up
+    </span>
+  </button>
+
   <app-root></app-root>
+  <script src="/finisher-header.es5.min.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+    new FinisherHeader({
+      "count": 100,
+      "size": {
+        "min": 2,
+        "max": 8,
+        "pulse": 0
+      },
+      "speed": {
+        "x": {
+          "min": 0,
+          "max": 0.2
+        },
+        "y": {
+          "min": 0,
+          "max": 0.2
+        }
+      },
+      "colors": {
+        "background": "#201e30",
+        "particles": [
+          "#fbfcca",
+          "#d7f3fe",
+          "#ffd0a7"
+        ]
+      },
+      "blending": "screen",
+      "opacity": {
+        "center": 1,
+        "edge": 0
+      },
+      "skew": -2,
+      "shapes": [
+        "c"
+      ]
+    });
+  </script>
+
+  <script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+
 </body>
+
 </html>

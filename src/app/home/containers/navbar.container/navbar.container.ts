@@ -18,7 +18,16 @@ import { defaultAbout } from '../../../models/about.model';
   ] 
 })
 export class NavbarContainer {
+
   private contentfulService = inject(ContentfulService);
 
   about = toSignal(this.contentfulService.getAbout(), { initialValue: defaultAbout });
+
+  onDarkModeChanged(isDark: boolean) {
+    if (isDark) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }  
 }

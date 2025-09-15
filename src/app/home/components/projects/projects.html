@@ -1,7 +1,10 @@
 <section id="works" class="mx-auto px-6 min-h-[100vh] pb-25 pt-20">
-    <h1 class="mb-20 text-center text-4xl md:text-5xl font-bold">Projects</h1>
+    <h1 class="mb-20 text-center text-4xl md:text-5xl font-bold text-title">Projects</h1>
     <mat-tab-group>
-        <mat-tab label="Web">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-title">Web</span>
+            </ng-template>
             @if (webProjects().length > 0) {
                 @for (project of webProjects(); track project) {
                 <app-project-card 
@@ -14,10 +17,13 @@
                 </app-project-card>
                 }
             } @else {
-                <p class="text-center text-gray-500 text-2xl mt-[30vh]">No projects available.</p>
+                <p class="text-center text-placeholderText text-2xl mt-[30vh]">No projects available.</p>
             }
         </mat-tab>
-        <mat-tab label="App">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-title">App</span>
+            </ng-template>            
             @if (appProjects().length > 0) {
                 @for (project of appProjects(); track project) {
                 <app-project-card 
@@ -30,10 +36,13 @@
                 </app-project-card>
                 }
             } @else {
-                <p class="text-center text-gray-500 text-2xl mt-[30vh]">No projects available.</p>
+                <p class="text-center text-placeholderText text-2xl mt-[30vh]">No projects available.</p>
             }
         </mat-tab>
-        <mat-tab label="Others">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-title">Others</span>
+            </ng-template>             
             @if (otherProjects().length > 0) {
                 @for (project of otherProjects(); track project) {
                 <app-project-card 
@@ -46,7 +55,7 @@
                 </app-project-card>
                 }
             } @else {
-                <p class="text-center text-gray-500 text-2xl mt-[30vh]">No projects available.</p>
+                <p class="text-center text-placeholderText text-2xl mt-[30vh]">No projects available.</p>
             }
         </mat-tab>
     </mat-tab-group>

@@ -1,9 +1,19 @@
 <nav class="flex justify-between items-center px-8 py-6">
-    <h1 class="font-bold text-xl"> {{ firstName() }} <br> {{ lastName() }}.</h1>
-    <ul class="flex gap-8 font-medium">
+    <h1 class="font-bold text-xl text-navbarText"> {{ firstName() }} <br> {{ lastName() }}.</h1>
+    <ul class="flex items-center gap-8 font-medium text-navbarText">
         <li><a href="#about" class="hover:underline">About</a></li>
         <li><a href="#technologies" class="hover:underline">Technologies</a></li>
         <li><a href="#works" class="hover:underline">Works</a></li>
         <li><a href="#contact" class="hover:underline">Contact</a></li>
+        <li>
+            <button (click)="toggleDarkMode()" 
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-modeIconBg hover:bg-modeIconBg transition-transform hover:scale-125">      
+                <img 
+                    [src]="darkMode() ? '/icons8-moon.gif' : '/icons8-sun-unscreen.gif'" 
+                    [alt]="darkMode() ? 'Dark Mode' : 'Light Mode'"    
+                    class="rounded-4xl"                            
+                >                
+            </button>
+        </li>
     </ul>
 </nav>

@@ -17,7 +17,7 @@
 
 /* Chat header bar */
 .chat-header {
-  background: #FF6B35;
+  background: #2563EB; /* Blue primary */
   color: white;
   padding: 1rem;
   font-weight: 600;
@@ -54,7 +54,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: #FFF5F0;
+  background-color: #F0F7FF; /* light blue background */
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -74,16 +74,16 @@
 }
 
 .messages-container::-webkit-scrollbar-track {
-  background: #FFF5F0;
+  background: #F0F7FF;
 }
 
 .messages-container::-webkit-scrollbar-thumb {
-  background: #FFB088;
+  background: #93C5FD;
   border-radius: 4px;
 }
 
 .messages-container::-webkit-scrollbar-thumb:hover {
-  background: #FF8C5A;
+  background: #3B82F6;
 }
 
 .empty-state {
@@ -99,7 +99,7 @@
 .empty-state .icon-chat {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #FFB088;
+  color: #93C5FD;
 }
 
 .empty-state p {
@@ -119,7 +119,7 @@
 }
 
 .message.user-message .message-content {
-  background-color: #FF6B35;
+  background-color: #2563EB;
   color: white;
   border-bottom-right-radius: 4px;
 }
@@ -176,7 +176,7 @@
 .typing-indicator span {
   width: 8px;
   height: 8px;
-  background-color: #FF8C5A;
+  background-color: #3B82F6;
   border-radius: 50%;
   animation: typing 1.4s infinite;
 }
@@ -194,10 +194,10 @@
   align-items: center;
   gap: 0.5rem;
   padding: 1rem;
-  background-color: #FFB088;
-  border: 1px solid #FF8C5A;
+  background-color: #93C5FD;
+  border: 1px solid #3B82F6;
   border-radius: 8px;
-  color: #FF6B35;
+  color: #1E40AF;
 }
 
 .error-message .icon-error {
@@ -226,7 +226,7 @@
 
 .message-input:focus {
   outline: none;
-  border-color: #FF6B35;
+  border-color: #2563EB;
 }
 
 .send-button {
@@ -234,7 +234,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background-color: #FF6B35;
+  background-color: #2563EB;
   color: white;
   border: none;
   border-radius: 8px;
@@ -245,7 +245,7 @@
 }
 
 .send-button:hover:not(:disabled) {
-  background-color: #E55A2B;
+  background-color: #1E40AF;
   transform: translateY(-1px);
 }
 
@@ -254,7 +254,7 @@
 }
 
 .send-button:disabled {
-  background-color: #FFB088;
+  background-color: #93C5FD;
   cursor: not-allowed;
   opacity: 0.6;
 }
@@ -293,7 +293,7 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #FF6B35;
+  background: #2563EB;
   color: white;
   border: none;
   cursor: pointer;
@@ -307,7 +307,7 @@
 }
 
 .chat-toggle:hover {
-  background: #E55A2B;
+  background: #1E40AF;
   transform: scale(1.05);
 }
 

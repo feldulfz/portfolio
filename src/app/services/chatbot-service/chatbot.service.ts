@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-// import { environment } from '../../../environments/environment';
+import { environment } from '../../../enviroment/enviroment';
 
 export interface Message {
   role: 'user' | 'assistant' | 'system';
@@ -17,7 +17,7 @@ export interface ChatContext {
 })
 export class ChatbotService {
 
-  private apiKey = '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';
+  private apiKey = environment.modelApiKey;
   private apiUrl = '/api/v1/chat/completions';
 
   // Signals for reactive state management
@@ -36,7 +36,7 @@ export class ChatbotService {
   }
 
   async sendMessage(userMessage: string): Promise<void> {
-    if (!this.apiKey || this.apiKey !== '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') {
+    if (!this.apiKey) {
       this.error.set('Please configure your Anthropic API key in the environment file');
       return;
     }    

@@ -16,7 +16,7 @@
                 [class.user-message]="message.role === 'user'" 
                 [class.assistant-message]="message.role === 'assistant'">
             <div class="message-header">
-              <span class="role">{{ message.role === 'user' ? 'You' : 'Porfolio Bot' }}</span>
+              <span class="role">{{ message.role === 'user' ? 'You' : 'Bot' }}</span>
               <span class="timestamp">{{ message.timestamp | date: 'short' }}</span>
             </div>
             <div class="message-content">{{ message.content }}</div>
@@ -26,7 +26,7 @@
         @if (isLoading()) {
           <div class="message assistant-message loading">
             <div class="message-header">
-              <span class="role">Porfolio Bot</span>
+              <span class="role">Bot</span>
             </div>
             <div class="typing-indicator">
               <span></span>

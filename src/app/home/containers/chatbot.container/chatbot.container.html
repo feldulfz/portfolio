@@ -1,0 +1,13 @@
+    <app-chatbot
+      [messages]="chatbotService.messages()"
+      [isOpen]="isOpen()"
+      [isLoading]="chatbotService.isLoading()"
+      [error]="chatbotService.error()"
+      [userInput]="userInput()"
+      [isSendDisabled]="isSendDisabled()"
+      [contextAvailable]="contextAvailable()"
+      (toggleChat)="toggleChat()"
+      (userInputChange)="userInput.set($event)"
+      (sendMessage)="sendMessage()"
+      (handleKeyPress)="handleKeyPress($event)"
+    />

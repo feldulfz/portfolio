@@ -1,0 +1,76 @@
+@if (isOpen()) {
+  <div class="chat-wrapper">
+    <div class="chat-header">
+      <div class="bot-name">
+        <i class="icon-chat"></i> Porfolio Bot
+      </div>
+      <button class="close-btn" (click)="toggleChat.emit()">✕</button>
+    </div>
+
+    <div class="chat-container">
+
+      <div class="messages-container">
+        
+        @for (message of messages(); track message.timestamp) {
+          <div class="message" 
+                [class.user-message]="message.role === 'user'" 
+                [class.assistant-message]="message.role === 'assistant'">
+            <div class="message-header">
+              <span class="role">{{ message.role === 'user' ? 'You' : 'Porfolio Bot' }}</span>
+              <span class="timestamp">{{ message.timestamp | date: 'short' }}</span>
+            </div>
+            <div class="message-content">{{ message.content }}</div>
+          </div>
+        }
+        
+        @if (isLoading()) {
+          <div class="message assistant-message loading">
+            <div class="message-header">
+              <span class="role">Porfolio Bot</span>
+            </div>
+            <div class="typing-indicator">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        }
+        
+        @if (error()) {
+          <div class="error-message">
+            <i class="icon-error"></i>
+            {{ error() }}
+          </div>
+        }
+      </div>
+      
+      <div class="input-container">
+        <textarea
+          [ngModel]="userInput()"
+          (ngModelChange)="userInputChange.emit($event)"          
+          (keypress)="handleKeyPress.emit($event)"
+          placeholder="Ask about the me..."      
+          [disabled]="!contextAvailable()"          
+          class="message-input"
+          rows="3"
+        ></textarea>
+        <button 
+          (click)="sendMessage.emit()" 
+          [disabled]="isSendDisabled()"
+          class="send-button"
+        >
+          <span class="material-symbols-outlined">
+          send
+          </span>           
+        </button>
+      </div>
+    </div>
+  </div>
+}
+
+<!-- Toggle Button (floating button style) -->
+<button class="chat-toggle" (click)="toggleChat.emit()">  
+  <span class="material-symbols-outlined">
+  smart_toy
+  </span>  
+</button>

@@ -1,25 +1,13 @@
-import { Component, inject, computed } from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { AboutMe } from "../../components/about-me/about-me";
-import { ContentfulService } from '../../../services/contentful-service/contentful.service.port';
-import { ContentfulServiceAdapter } from '../../../services/contentful-service/contentful.service.adapter';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { defaultAbout } from '../../../models/about.model';
+import { PortfolioContentService } from '../../../services/portfolio-content-service/portfolio-content.service';
 
 @Component({
   selector: 'app-about-container',
   imports: [AboutMe],
   templateUrl: './about.container.html',
-  styleUrl: './about.container.css',
-  providers: [
-    {
-      provide: ContentfulService,
-      useClass: ContentfulServiceAdapter
-    }
-  ]
+  styleUrl: './about.container.css'
 })
 export class AboutContainer {
-  private contentfulService = inject(ContentfulService);
-  
-  about = toSignal(this.contentfulService.getAbout(), { initialValue: defaultAbout });
-
+  portfolioContent = inject(PortfolioContentService);
 }

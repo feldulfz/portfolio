@@ -13,6 +13,22 @@ export class PortfolioContentService {
 
   about = toSignal(this.contentfulService.getAbout(), { initialValue: defaultAbout });
 
+
+  // Tech stack and tools    
+  logosSignal = toSignal(this.contentfulService.getLogos(), { initialValue: [] });
+
+  logoTechsSignal = computed(() =>
+    this.logosSignal()
+      .filter((l: Logo) => l.category === 'tech')
+      .sort((a, b) => a.sortOrder - b.sortOrder)
+  );
+
+  logoToolsSignal = computed(() =>
+    this.logosSignal()
+      .filter((l: Logo) => l.category === 'tool')
+      .sort((a, b) => a.sortOrder - b.sortOrder)
+  );  
+
   // project
   projectsSignal = toSignal(this.contentfulService.getProjects(), { initialValue: [] });
   
@@ -33,20 +49,4 @@ export class PortfolioContentService {
       .filter((p: Project) => p.category === 'others')
       .sort((a, b) => a.sortOrder - b.sortOrder)
     );    
-
-
-  // Tech stack and tools    
-  logosSignal = toSignal(this.contentfulService.getLogos(), { initialValue: [] });
-
-  logoTechsSignal = computed(() =>
-    this.logosSignal()
-      .filter((l: Logo) => l.category === 'tech')
-      .sort((a, b) => a.sortOrder - b.sortOrder)
-  );
-
-  logoToolsSignal = computed(() =>
-    this.logosSignal()
-      .filter((l: Logo) => l.category === 'tool')
-      .sort((a, b) => a.sortOrder - b.sortOrder)
-  );
 }

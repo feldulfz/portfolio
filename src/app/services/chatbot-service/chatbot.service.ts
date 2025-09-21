@@ -18,8 +18,9 @@ export interface ChatContext {
 export class ChatbotService {
 
   private apiKey = environment.modelApiKey;
-  private apiUrl = '/api/v1/chat/completions';
-
+  // private apiUrl = '/api/v1/chat/completions';
+  private apiUrl = 'http://localhost:3000/api/v1/chat/completions';
+  
   // Signals for reactive state management
   messages = signal<Message[]>([]);
   context = signal<ChatContext | null>(null);

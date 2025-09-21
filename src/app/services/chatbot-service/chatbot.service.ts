@@ -17,8 +17,6 @@ export interface ChatContext {
 })
 export class ChatbotService {
 
-  private apiKey = environment.modelApiKey;
-  // private apiUrl = '/api/v1/chat/completions';
   private apiUrl = 'http://localhost:3000/api/v1/chat/completions';
   
   // Signals for reactive state management
@@ -37,12 +35,6 @@ export class ChatbotService {
   }
 
   async sendMessage(userMessage: string): Promise<void> {
-    if (!this.apiKey) {
-      this.error.set('Please configure your modelAPI key in the environment file');
-      return;
-    }    
-
-    // this.setContext('You are a chatbot that must ONLY answer questions using the following context: The cat chased another cat across the yard, while a third cat watched from the fence, and a fourth cat pounced as the last cat ran away. If the user asks something not related to this context, reply: "I can only answer questions about the given context."');
 
     // Add user message to the chat
     const newUserMessage: Message = {

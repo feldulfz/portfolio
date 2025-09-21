@@ -37,7 +37,7 @@ export class ChatbotService {
 
   async sendMessage(userMessage: string): Promise<void> {
     if (!this.apiKey) {
-      this.error.set('Please configure your Anthropic API key in the environment file');
+      this.error.set('Please configure your modelAPI key in the environment file');
       return;
     }    
 

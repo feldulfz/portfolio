@@ -50,7 +50,7 @@ export class ChatbotService {
     try {
       // Prepare the system message with context
       const systemMessageTemp = this.context()
-        ? `You are a helpful assistant. Please answer questions based on the following context:\n\n${this.context()?.content}`
+        ? `You are a helpful assistant. Please answer questions based on the following context:\n\n${this.context()?.content}. Don't make up any information not contained in the context. And don't answer questions unrelated to the context.`
         : 'You are a helpful assistant.';
 
       // Prepare messages for the API
@@ -70,7 +70,7 @@ export class ChatbotService {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            model: 'deepseek/deepseek-r1-0528-qwen3-8b:free',
+            model: 'deepseek/deepseek-r1-0528-qwen3-8b',
             messages: [
               systemMessage, 
               ...apiMessages

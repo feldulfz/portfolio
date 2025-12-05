@@ -13,4 +13,5 @@ export class Projects {
   webProjects = input<Project[]>([]);
   appProjects = input<Project[]>([]);
   otherProjects = input<Project[]>([]);
+  certificates = input<Project[]>([]);
 }

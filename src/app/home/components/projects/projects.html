@@ -1,5 +1,7 @@
 <section id="works" class="mx-auto px-6 min-h-[100vh] pb-25 pt-20">
-    <h1 class="mb-20 text-center text-4xl md:text-5xl font-bold text-title">Projects</h1>
+    <h1 class="mb-20 text-center text-4xl md:text-5xl font-bold text-title">
+        Projects <span class="mx-3">&</span> Certificates
+    </h1>
     <mat-tab-group>
         <mat-tab>
             <ng-template mat-tab-label>
@@ -58,5 +60,26 @@
                 <p class="text-center text-placeholderText text-2xl mt-[30vh]">No projects available.</p>
             }
         </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-title">Certificates</span>
+            </ng-template>             
+            @if (otherProjects().length > 0) {
+                @for (certificate of certificates(); track certificate) {
+                <app-project-card 
+                    [projectType]="'certificate'"
+                    [title]="certificate.title" 
+                    [description]="certificate.description" 
+                    [status]="certificate.status"
+                    [imageUrl]="certificate.imageUrl" 
+                    [githubLink]="certificate.githubLink" 
+                    [projectLink]="certificate.projectLink">
+                </app-project-card>
+                }
+            } @else {
+                <p class="text-center text-placeholderText text-2xl mt-[30vh]">No certificate available.</p>
+            }
+        </mat-tab>
+
     </mat-tab-group>
 </section>

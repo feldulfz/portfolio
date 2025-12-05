@@ -1,8 +1,9 @@
+import { NgClass } from '@angular/common';
 import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
-  imports: [],
+  imports: [NgClass],
   templateUrl: './footer.html',
   styleUrl: './footer.css'
 })

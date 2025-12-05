@@ -13,4 +13,5 @@ export class ProjectCard {
   imageUrl = input<string>('');
   githubLink = input<string>('');
   projectLink = input<string>('');
+  projectType = input<string>('');
 }

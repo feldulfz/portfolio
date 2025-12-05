@@ -48,5 +48,11 @@ export class PortfolioContentService {
     this.projectsSignal()
       .filter((p: Project) => p.category === 'others')
       .sort((a, b) => a.sortOrder - b.sortOrder)
-    );    
+    ); 
+    
+  certificatesSignal = computed(() => 
+    this.projectsSignal()
+      .filter((p: Project) => p.category === 'certificate')
+      .sort((a, b) => a.sortOrder - b.sortOrder)
+    );     
 }

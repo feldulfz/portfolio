@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "routes": [
-    { "src": "/api/v1/chat/completions", "dest": "/api/chat.js" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/api/v1/chat/completions", "destination": "/api/chat.js" },
+    { "source": "/(.*)", "destination": "/" }
   ]
 }

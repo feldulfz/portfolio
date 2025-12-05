@@ -17,18 +17,18 @@
             </ul>
             <div class="flex gap-4">
                 <a [href]="urlOne()" target="_blank">
-                    <i [ngClass]="['fab', 'fa-' + iconOne(), 'text-6xl']"></i>
+                    <i [class]="'fab fa-' + iconOne() + ' text-6xl'"></i>
                 </a>
                 <a [href]="urlTwo()" target="_blank">
-                    <i [ngClass]="['fab', 'fa-' + iconTwo(), 'text-6xl']"></i>
+                    <i [class]="'fab fa-' + iconTwo() + ' text-6xl'"></i>
                 </a>
                 <a [href]="urlThree()" target="_blank">
-                    <i [ngClass]="['fab', 'fa-' + iconThree(), 'text-6xl']"></i>
+                    <i [class]="'fab fa-' + iconThree() + ' text-6xl'"></i>
                 </a>
                 <a [href]="urlFour()" target="_blank">
-                    <i [ngClass]="['fab', 'fa-' + iconFour(), 'text-6xl']"></i>
+                    <i [class]="'fab fa-' + iconFour() + ' text-6xl'"></i>
                 </a>
-            </div>            
+            </div>         
         </div>
         <p class="text-xs text-gray-500 mt-6">©{{ currentYear }} {{ firstName() }} {{ lastName() }}</p>
     </div>

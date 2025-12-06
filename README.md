@@ -134,3 +134,19 @@ The chatbot requires an API key from [OpenRouter](https://openrouter.ai/).
 ## Deployment
 
 The application is configured for easy deployment to Vercel. The `vercel.json` file contains rewrite rules to handle both the Angular single-page application routing and the API proxy for the chatbot. On push to the main branch, Vercel will automatically build and deploy the application. Ensure the `MODEL_API_KEY` is set as an environment variable in your Vercel project settings.
+
+---
+
+## Visuals
+
+### Chatbot
+
+![portfolio_1](ReadMeImages/portfolio_1.png 'portfolio_1')
+
+### Light Mode
+
+![portfolio_2](ReadMeImages/portfolio_2.png 'portfolio_2')
+
+### Dork Mode
+
+![portfolio_3](ReadMeImages/portfolio_3.png 'portfolio_3')
